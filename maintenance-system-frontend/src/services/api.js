@@ -7,25 +7,25 @@ const apiClient = axios.create({
     }
 });
 
-export const loginUser = async (email, password) => {
-    console.log("Tentando login com:", email, password);
+export const loginUser = async (login, password) => {
+    console.log("Tentando login com:", login, password);
     await new Promise(resolve => setTimeout(resolve, 500));
 
-    if (email === "admin@pms.com") {
+    if (login === "admin@pms.com") {
         return {
             data: {
                 token: "fake-jwt-token-admin",
                 user: { id: 1, nome: "Admin Master", email: "admin@pms.com", role: "ADMIN" }
             }
         };
-    } else if (email === "cliente@pms.com") {
+    } else if (login === "cliente@pms.com") {
         return {
             data: {
                 token: "fake-jwt-token-cliente",
                 user: { id: 2, nome: "Cliente Exemplo", email: "cliente@pms.com", role: "CLIENTE" }
             }
         };
-    } else if (email === "tecnico@pms.com") {
+    } else if (login === "tecnico@pms.com") {
         return {
             data: {
                 token: "fake-jwt-token-tecnico",

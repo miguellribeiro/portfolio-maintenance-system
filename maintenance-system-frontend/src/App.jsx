@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from './contexts/AuthContext';
+import { useAuth } from './contexts';
 import { routesMap } from './utils/routesMap';
 
 // Componentes Essenciais

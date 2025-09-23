@@ -317,10 +317,14 @@
   --rose-900: #881337;
   --rose-950: #4c0519;
   
+  --seaweed-25: #fafcf6;
   --seaweed-50: #f4f9ec;
   --seaweed-75: #edf5e1;
   --seaweed-100: #e6f1d6;
   --seaweed-200: #cfe5b1;
+  --seaweed-225: #c7e1a6;
+  --seaweed-250: #c0dc9a;
+  --seaweed-275: #b8d88f;
   --seaweed-300: #b0d383;
   --seaweed-400: #92c05b;
   --seaweed-500: #74a43e;
@@ -332,24 +336,27 @@
 }
 
 :root{
+  --color-primary-light: var(--seaweed-400);
   --color-primary: var(--seaweed-500);
-  --color-primary-light: var(--seaweed-300);
-  --color-primary-dark: var(--seaweed-400);
+  --color-primary-dark: var(--seaweed-600);
+  --color-secondary: var(--seaweed-300);
+  --color-tertiary: var(--seaweed-200);
 
   --color-success: var(--green-400);
   --color-danger: var(--red-400);
   --color-warning: var(--amber-400);
   --color-info: var(--blue-400);
 
-  --color-bg: var(--seaweed-50);
-  --color-surface-contrast: var(--neutral-50);
-  --color-surface: var(--seaweed-75);
-  --color-border: var(--seaweed-100);
+  --bg-primary: var(--seaweed-25);
+  --bg-secondary: var(--seaweed-50);
+  --bg-tertiary: var(--seaweed-75);
+  --bg-secondary-contrast: var(--neutral-50);
 
   --color-text-primary: var(--neutral-900);
   --color-text-secondary: var(--neutral-800);
   --color-text-muted: var(--neutral-700);
   --color-text-on-primary: var(--neutral-50);
+  --border-color: var(--neutral-300);
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);

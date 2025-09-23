@@ -1,19 +1,33 @@
 .loginContainer{
+  width: 100dvw;
+  height: 100dvh;
+  background: var(--bg-primary);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.loginBackground{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100dvh;
-  padding: 1rem;
+  height: 100%;
   gap: 1rem;
-  background: var(--color-bg);
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  backdrop-filter: blur(10px);
+  z-index: 1;
 }
 
 .loginImage{
   display: flex;
   flex: 0.5 0.5;
   height: 100%;
-  background: var(--color-primary-light);
-  border-radius: 1rem;
+  background: var(--seaweed-300);
+  border-radius: var(--border-radius);
+  z-index: 2;
+  position: relative;
 }
 
 .loginContent{
@@ -23,14 +37,220 @@
   justify-content: center;
   flex: 0.5 0.5;
   height: 100%;
+  position: relative;
+  transition: all 0.2s ease-in-out;
 }
 
 .formContainer{
   display: flex;
   flex-direction: column;
+  gap: 1rem;  
+  width: 24rem;
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--bg-tertiary);
+  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.formTitle{
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  text-align: center;
+  margin: 0.35rem 0;
+}
+
+.formContent{
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  /* background: var(--color-surface-contrast);
-  box-shadow: var(--shadow-sm); */
-  padding: 1rem;
-  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.loginButton{
+  height: 2.5rem;
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--bg-secondary-contrast);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.9rem;
+  margin-top: 1.35rem;
+}
+
+.loginButton:is(:hover, :focus){
+  outline: none;
+  color: var(--color-primary);
+  background: transparent;
+  transform: scale(1.0125);
+  transform-origin: center;
+}
+
+.forgotPasswordLink{
+  font-size: 0.9rem;
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.forgotPasswordLink:is(:hover, :focus){
+  color: var(--color-primary);
+  outline: none;
+  transform: scale(1.0125);
+  transform-origin: left;
+}
+
+.forgotPasswordContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.forgotPasswordText{
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.forgotPasswordButton{
+  height: 2.5rem;
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--bg-secondary-contrast);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.9rem;
+}
+
+.forgotPasswordButton:is(:hover, :focus){
+  outline: none;
+  color: var(--color-primary);
+  background: transparent;
+  transform: scale(1.0125);
+  transform-origin: center;
+}
+
+.planta01{
+  position: absolute;
+  left: -2.5rem;
+  bottom: 1rem;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.planta02{
+  position: absolute;
+  right: -2.5rem;
+  top: 5rem;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.separadorComSimbolo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  left: 0;
+}
+
+.linha {
+  flex-grow: 1;
+  width: 2px;
+  background-color: var(--seaweed-500);
+}
+
+.linha:first-child{
+  margin-left: -3px;
+}
+
+.linha:last-child{
+  margin-left: -53px;
+}
+
+.simbolo {
+  flex-shrink: 0;
+  width: 55px;
+  height: auto;
+}
+
+
+.bola1, .bola2{
+  position: absolute;
+  background: var(--seaweed-200);
+  width: 90dvh;
+  height: 90dvh;
+  border-radius: 50%;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bola1{
+  left: 20%;
+  top: -60%;
+}
+
+.bola2{
+  right: -25%;
+  bottom: -50%;
+}
+
+.bola1::after, .bola2::after{
+  content: '';
+  position: absolute;
+  width: 80dvh;
+  height: 80dvh;
+  border-radius: 50%;
+  background: var(--seaweed-25);
+  z-index: -1;
+}
+
+@media screen and (max-width: 1024px) {
+  .loginImage{
+    display: none;
+  }
+
+  .loginContainer{
+    padding: 2rem;
+  }
+
+  .loginContent{
+    flex: 1 1;
+  }
+
+  .formTitle{
+    font-size: 2rem;
+  }
+
+  .formContainer{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .formContent{
+    gap: 1.5rem;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .formContent{
+    width: 100%;
+  }
 }

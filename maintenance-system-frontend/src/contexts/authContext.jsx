@@ -16,9 +16,9 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, [token]);
 
-  const login = async (email, password) => {
+  const login = async (login, password) => {
     try {
-      const response = await loginApi(email, password);
+      const response = await loginApi(login, password);
       const { user: userData, token: authToken } = response.data;
 
       setUser(userData);

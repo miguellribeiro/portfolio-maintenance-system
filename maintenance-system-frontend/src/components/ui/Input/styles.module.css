@@ -1,11 +1,12 @@
 .inputContainer{
   display: flex;
   flex-direction: column;
+  gap: 0.15rem;
 }
 
 .inputLabel{
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-text-primary);
 }
 
@@ -71,9 +72,13 @@
   width: 100%;
   padding: 0;
   border: 1px solid var(--neutral-300);
-  background: var(--color-surface-contrast);
+  background: var(--bg-secondary-contrast);
+  color: var(--color-text-primary);
   border-radius: var(--border-radius);
-  font-size: 1rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  font-family: 'titillium web', sans-serif;
+  transition: all 0.2s ease-in-out;
 }
 
 .input:focus{
