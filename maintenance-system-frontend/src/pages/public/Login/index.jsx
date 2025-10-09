@@ -1,9 +1,10 @@
-import { useAuth, useModal } from '../../../contexts';
-import { Modal } from '../../../components/ui/Modal';
+import { useAuth, useModal, useToast, useLoader } from '../../../contexts';
+import { Modal } from '../../../components/common/Modal';
 import styles from './styles.module.css'
 import { useInput, Input } from '../../../components/ui/Input';
 import Planta01 from '/svg/Planta_01.svg';
 import Planta02 from '/svg/Planta_02.svg';
+import { useEffect } from 'react';
 
 const LoginPage = () => {
     const [loginProps] = useInput();
@@ -11,13 +12,21 @@ const LoginPage = () => {
     const [emailProps] = useInput();
     const { login } = useAuth();
     const { openModal, closeModal } = useModal();
+    const { toast } = useToast();
+    const { showGlobalLoader, hideGlobalLoader } = useLoader();
+
+    useEffect(() => {
+        hideGlobalLoader();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            showGlobalLoader();
             await login(loginProps.value, passwordProps.value);
         } catch (err) {
-
+            hideGlobalLoader();
+            toast(err.message || 'Ocorreu um erro ao realizar o login.', { type: 'error' })
         }
     };
 
@@ -26,6 +35,7 @@ const LoginPage = () => {
             <main className={styles.loginContainer}>
                 <div className={styles.loginBackground}>
                     <section className={styles.loginImage}>
+                
                     </section>
                     <section className={styles.loginContent}>
                         <div className={styles.formContainer}>

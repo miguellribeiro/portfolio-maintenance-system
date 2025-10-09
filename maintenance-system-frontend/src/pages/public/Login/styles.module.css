@@ -3,7 +3,6 @@
   height: 100dvh;
   background: var(--bg-primary);
   overflow: hidden;
-  transition: all 0.2s ease-in-out;
   position: relative;
 }
 
@@ -14,7 +13,6 @@
   height: 100%;
   gap: 1rem;
   padding: 1rem;
-  transition: all 0.2s ease-in-out;
   position: relative;
   backdrop-filter: blur(10px);
   z-index: 1;
@@ -112,7 +110,7 @@
 }
 
 .forgotPasswordText{
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
 }
 
@@ -224,7 +222,7 @@
     display: none;
   }
 
-  .loginContainer{
+  .loginBackground{
     padding: 2rem;
   }
 
@@ -252,5 +250,9 @@
 @media screen and (max-width: 768px) {
   .formContent{
     width: 100%;
+  }
+
+  .planta01, .planta02{
+    display: none;
   }
 }

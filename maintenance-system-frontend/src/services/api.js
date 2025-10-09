@@ -7,35 +7,14 @@ const apiClient = axios.create({
     }
 });
 
-export const loginUser = async (login, password) => {
-    console.log("Tentando login com:", login, password);
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    if (login === "admin@pms.com") {
-        return {
-            data: {
-                token: "fake-jwt-token-admin",
-                user: { id: 1, nome: "Admin Master", email: "admin@pms.com", role: "ADMIN" }
-            }
-        };
-    } else if (login === "cliente@pms.com") {
-        return {
-            data: {
-                token: "fake-jwt-token-cliente",
-                user: { id: 2, nome: "Cliente Exemplo", email: "cliente@pms.com", role: "CLIENTE" }
-            }
-        };
-    } else if (login === "tecnico@pms.com") {
-        return {
-            data: {
-                token: "fake-jwt-token-tecnico",
-                user: { id: 3, nome: "Técnica Ana", email: "tecnico@pms.com", role: "TECNICO" }
-            }
-        };
-    } else {
-        throw new Error("Credenciais inválidas");
-    }
+/**
+ * Autentica um usuário fazendo uma chamada POST para o backend.
+ * @param {string} login - O e-mail ou nome de usuário.
+ * @param {string} password - A senha.
+ * @returns {Promise} A promessa da resposta da API.
+ */
+export const loginUser = (login, password) => {
+    return apiClient.post('/api/auth/login', { login, password });
 };
 
 export const getClientes = () => apiClient.get('/clientes');
-

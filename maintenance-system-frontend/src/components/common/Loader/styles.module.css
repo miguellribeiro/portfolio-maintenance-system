@@ -1,0 +1,63 @@
+/* --- Global Loader --- */
+.globalLoaderOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.globalLoaderOverlay p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: var(--dark-color);
+}
+
+.localLoaderContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.localLoaderOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    border-radius: 8px;
+}
+
+.blurredContent {
+    filter: blur(4px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--light-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
